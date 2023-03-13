@@ -58,6 +58,12 @@
 #   define BOOST_ENDIAN_NO_CTORS
 # endif
 
+# if (defined(BOOST_ENDIAN_FORCE_ATTRIBUTE))
+#   define BOOST_ENDIAN_ATTRIBUTE BOOST_ENDIAN_FORCE_ATTRIBUTE
+# else
+#   define BOOST_ENDIAN_ATTRIBUTE
+# endif
+
 //----------------------------------  synopsis  ----------------------------------------//
 
 namespace boost
@@ -262,7 +268,7 @@ public:
     {
         return value_;
     }
-};
+} BOOST_ENDIAN_ATTRIBUTE;
 
 // aligned specializations; only n_bits == 16/32/64 supported
 

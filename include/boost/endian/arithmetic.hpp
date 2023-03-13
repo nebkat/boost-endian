@@ -62,6 +62,12 @@
 #   define BOOST_ENDIAN_EXPLICIT_OPT explicit
 # endif
 
+# if (defined(BOOST_ENDIAN_FORCE_ATTRIBUTE))
+#   define BOOST_ENDIAN_ATTRIBUTE BOOST_ENDIAN_FORCE_ATTRIBUTE
+# else
+#   define BOOST_ENDIAN_ATTRIBUTE
+# endif
+
 //----------------------------------  synopsis  ----------------------------------------//
 
 namespace boost
@@ -355,7 +361,7 @@ public:
 
         return is;
     }
-};
+} BOOST_ENDIAN_ATTRIBUTE;
 
 } // namespace endian
 } // namespace boost
